@@ -37,6 +37,14 @@ export default function Item(item) {
       return "Sin stock"
     }
   }
+  const habilitado = () => {
+    if (count > 0){
+      return false
+    }
+    else{
+      return true
+    }
+  }
   
 
   return (
@@ -44,7 +52,7 @@ export default function Item(item) {
             <h3>{item.title}</h3>
             <p>{item.description}</p>
             <h5>En stock: <span>{span()}</span></h5>
-            <button onClick={decrement}>{boton()}</button>
+            <button onClick={decrement} disabled={habilitado()}>{boton()}</button>
     </div>
   )
 }
